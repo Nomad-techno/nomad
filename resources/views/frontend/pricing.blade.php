@@ -20,85 +20,73 @@
 
     <!--::pricing part start::-->
     <section class="pricing_part section_padding home_page_pricing">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <div class="section_tittle text-center">
-                        <h2>Simple Pricing</h2>
-                        <p>Life firmament under them evening make after called dont
-                            saying likeness isn't wherein also forth she'd air two without</p>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="section_tittle text-center">
+                            <h2>Simple Pricing</h2>
+                            <p>Life firmament under them evening make after called dont
+                                saying likeness isn't wherein also forth she'd air two without</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="single_pricing_part">
+                            <img src="{{asset('frontend/img/icon/pricing_icon_1.png')}}" alt="">
+                            <p>Standart</p>
+                            <h3>$50.00 <span>/ mo</span></h3>
+                            <ul>
+                                    @foreach ($standart as $item)
+                                <li>{{ $item->list }}</li>
+                                @endforeach
+                            </ul>
+                            <a href="#" class="pricing_btn">Purchase Now</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="single_pricing_part">
+                            <img src="{{asset('frontend/img/icon/pricing_icon_2.png')}}" alt="">
+                            <p>Business</p>
+                            <h3>$50.00 <span>/ mo</span></h3>
+                            <ul>
+                                    @foreach ($standart as $item)
+                                    <li>{{ $item->list }}</li>
+                                    @endforeach
+                            </ul>
+                            <a href="#" class="pricing_btn">Purchase Now</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="single_pricing_part">
+                            <img src="{{asset('frontend/img/icon/pricing_icon_3.png')}}" alt="">
+                            <p>Premium</p>
+                            <h3>$60.00 <span>/ mo</span></h3>
+                            <ul>
+                                    @foreach ($standart as $item)
+                                    <li>{{ $item->list }}</li>
+                                    @endforeach
+                            </ul>
+                            <a href="#" class="pricing_btn">Purchase Now</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="single_pricing_part">
+                            <img src="{{asset('frontend/img/icon/pricing_icon_4.png')}}" alt="">
+                            <p>Ultimate</p>
+                            <h3>$80.00 <span>/ mo</span></h3>
+                            <ul>
+                                    @foreach ($standart as $item)
+                                <li>{{ $item->list }}</li>
+                                @endforeach
+                            </ul>
+                            <a href="#" class="pricing_btn">Purchase Now</a>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-3 col-sm-6">
-                    <div class="single_pricing_part">
-                        <img src="img/icon/pricing_icon_1.png" alt="">
-                        <p>Standard</p>
-                        <h3>$50.00 <span>/ mo</span></h3>
-                        <ul>
-                            <li>2GB Bandwidth</li>
-                            <li>Two Account</li>
-                            <li>15GB Storage</li>
-                            <li>Sale After Service</li>
-                            <li>3 Host Domain</li>
-                            <li>24/7 Support</li>
-                        </ul>
-                        <a href="#" class="pricing_btn">Purchase Now</a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="single_pricing_part">
-                        <img src="img/icon/pricing_icon_2.png" alt="">
-                        <p>Business</p>
-                        <h3>$50.00 <span>/ mo</span></h3>
-                        <ul>
-                            <li>2GB Bandwidth</li>
-                            <li>Two Account</li>
-                            <li>15GB Storage</li>
-                            <li>Sale After Service</li>
-                            <li>3 Host Domain</li>
-                            <li>24/7 Support</li>
-                        </ul>
-                        <a href="#" class="pricing_btn">Purchase Now</a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="single_pricing_part">
-                        <img src="img/icon/pricing_icon_3.png" alt="">
-                        <p>Premium</p>
-                        <h3>$60.00 <span>/ mo</span></h3>
-                        <ul>
-                            <li>2GB Bandwidth</li>
-                            <li>Two Account</li>
-                            <li>15GB Storage</li>
-                            <li>Sale After Service</li>
-                            <li>3 Host Domain</li>
-                            <li>24/7 Support</li>
-                        </ul>
-                        <a href="#" class="pricing_btn">Purchase Now</a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="single_pricing_part">
-                        <img src="img/icon/pricing_icon_4.png" alt="">
-                        <p>Ultimate</p>
-                        <h3>$80.00 <span>/ mo</span></h3>
-                        <ul>
-                            <li>2GB Bandwidth</li>
-                            <li>Two Account</li>
-                            <li>15GB Storage</li>
-                            <li>Sale After Service</li>
-                            <li>3 Host Domain</li>
-                            <li>24/7 Support</li>
-                        </ul>
-                        <a href="#" class="pricing_btn">Purchase Now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <img src="img/animate_icon/Ellipse_2.png" alt="" class="feature_icon_2 custom-animation2">
-    </section>
+            <img src="{{asset('frontend/img/animate_icon/Ellipse_2.png')}}" alt="" class="feature_icon_2 custom-animation2">
+        </section>
     <!--::pricing part end::-->
 
     <!--::accordion part start::-->

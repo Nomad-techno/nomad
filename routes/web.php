@@ -13,6 +13,15 @@
 // View::composer('layouts.main',function($view){
 // return $view;
 // });
+
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DynamicFieldController;
+
+Route::get('index/{lang}', function ($lang) {
+    \Session::put('lang', $lang);
+    return redirect()->back();
+})->name('locale');
+
 Route::get('/', function () {
     return view('layouts.main');
 });
@@ -23,12 +32,19 @@ Route::get('/blog','FrontendController@blog')->name('blog');
 Route::get('/single-blog','FrontendController@SingleBlog')->name('single-blog');
 Route::get('/elements','FrontendController@elements')->name('elements');
 Route::get('/contact','FrontendController@contact')->name('contact');
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::resource('category','CategoryController');
+Route::resource('/menu', 'MenuController');
+Route::resource('/post','PostController');
+Route::resource('/settings','SettingsController');
+Route::resource('/partners','PartnersController');
+Route::resource('/pages','PagesController');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('category','Category');
-Route::resource('menu', 'Menu');
-Route::resource('post','Post');
-Route::resource('settings','Settings');
-Route::resource('partners','Partners');
-Route::resource('pages','Pages');
+
+
+Route::get('/price', 'DynamicFieldController@index')->name('price.index');
+Route::get('create','DynamicFieldController@create')->name('price.create');
+Route::post('dynamic-field/insert', 'DynamicFieldController@insert')->name('dynamic-field.insert');

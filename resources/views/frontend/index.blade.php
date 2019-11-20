@@ -1,3 +1,7 @@
+@php
+    $lang =App::getLocale();
+    $i=1;
+@endphp
 @extends('layouts.main')
 @section('content')
 <section class="banner_part">
@@ -11,11 +15,8 @@
                 <div class="col-lg-6">
                     <div class="banner_text">
                         <div class="banner_text_iner">
-                            <h1>Building Networks
-                                For People</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                                sed do eiusmod tempor incididunt ut labore et dolore magna
-                                aliqua. Ut enim ad minim veniam.</p>
+                            <h1>{{ $try_for_free!=null?$try_for_free->{'title_'.$lang}:'' }}</h1>
+                            <p>{{ $try_for_free!=null?$try_for_free->{'value_'.$lang}:'' }}</p>
                             <a href="#" class="btn_2">try for free</a>
                         </div>
                     </div>
@@ -39,10 +40,8 @@
                     <div class="single_feature">
                         <div class="single_feature_part">
                             <img src="{{asset('frontend/img/icon/feature_icon_1.png')}}" alt="">
-                            <h4>Fully Secured</h4>
-                            <p>Made great fish shall beast, fourth land also Doesn
-                                tree without lesser likeness he fruit of called gathering
-                                day whose called were have </p>
+                            <h4>{{ $service_secured!=null?$service_secured->{'title_'.$lang}:'' }}</h4>
+                            <p>{{ $service_secured!=null?$service_secured->{'value_'.$lang}:'' }} </p>
                         </div>
                     </div>
                 </div>
@@ -50,10 +49,8 @@
                     <div class="single_feature">
                         <div class="single_feature_part">
                             <img src="{{asset('frontend/img/icon/feature_icon_2.png')}}" alt="">
-                            <h4>Unique Design</h4>
-                            <p>Made great fish shall beast, fourth land also Doesn tree
-                                without lesser likeness he fruit of called gathering day whose
-                                called were have </p>
+                            <h4>{{ $service_design!=null?$service_design->{'title_'.$lang}:'' }}</h4>
+                            <p>{{ $service_design!=null?$service_design->{'value_'.$lang}:'' }}</p>
                         </div>
                     </div>
                 </div>
@@ -61,9 +58,8 @@
                     <div class="single_feature">
                         <div class="single_feature_part">
                             <img src="{{asset('frontend/img/icon/feature_icon_3.png')}}" alt="">
-                            <h4>A Volunteer</h4>
-                            <p>Made great fish shall beast, fourth land also Doesn tree without
-                                lesser likeness he fruit of called gathering day whose called were have </p>
+                            <h4>{{ $service_volunteer!=null?$service_volunteer->{'title_'.$lang}:'' }}</h4>
+                            <p>{{ $service_volunteer!=null?$service_volunteer->{'value_'.$lang}:'' }} </p>
                         </div>
                     </div>
                 </div>
@@ -80,19 +76,14 @@
                 <div class="col-md-6 col-lg-5">
                     <div class="about_us_text">
                         <img src="{{asset('frontend/img/icon/Icon_1.png')}}" alt="">
-                        <h2>Easy To <br>
-                            Access Social Media</h2>
-                        <p>Saw shall light. Us their to place had creepeth day
-                            night great wher appear to. Hath, called, sea called,
-                            gathering wherein open make living Female itself
-                            gathering man. Waters and, two. Bearing. Saw she'd
-                            all let she'd lights abundantly blessed.</p>
+                        <h2>{{ $one_number!=null?$one_number->{'title_'.$lang}:'' }}</h2>
+                        <p>{{ $one_number!=null?$one_number->{'value_'.$lang}:'' }}</p>
                         <a href="#" class="btn_2">learn more</a>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-6">
                     <div class="learning_img">
-                        <img src="{{asset('frontend/img/about_img.png')}}" alt="">
+                        <img src="{{ $one_number!=null?asset('storage').'/'. $one_number->image:'' }}" alt="">
                     </div>
                 </div>
             </div>
@@ -107,19 +98,14 @@
             <div class="row align-items-center justify-content-between">
                 <div class="col-md-6 col-lg-6">
                     <div class="learning_img">
-                        <img src="{{asset('frontend/img/about_img_1.png')}}" alt="">
+                        <img src="{{ $two_number!=null?asset('storage').'/'.$two_number->image:'' }}"  alt="">
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-5">
                     <div class="about_us_text">
                         <img src="{{asset('frontend/img/icon/Icon_2.png')}}" alt="">
-                        <h2>With efficiency to
-                            unlock more opportunities</h2>
-                        <p>Saw shall light. Us their to place had creepeth day
-                            night great wher appear to. Hath, called, sea called,
-                            gathering wherein open make living Female itself
-                            gathering man. Waters and, two. Bearing. Saw she'd
-                            all let she'd lights abundantly blessed.</p>
+                        <h2>{{ $two_number!=null?$two_number->{'title_'.$lang}:'' }}</h2>
+                        <p>{{ $two_number!=null?$two_number->{'value_'.$lang}:'' }}</p>
                         <a href="#" class="btn_2">learn more</a>
                     </div>
                 </div>
@@ -145,15 +131,12 @@
                 <div class="col-lg-3 col-sm-6">
                     <div class="single_pricing_part">
                         <img src="{{asset('frontend/img/icon/pricing_icon_1.png')}}" alt="">
-                        <p>Standard</p>
+                        <p>Standart</p>
                         <h3>$50.00 <span>/ mo</span></h3>
                         <ul>
-                            <li>2GB Bandwidth</li>
-                            <li>Two Account</li>
-                            <li>15GB Storage</li>
-                            <li>Sale After Service</li>
-                            <li>3 Host Domain</li>
-                            <li>24/7 Support</li>
+                                @foreach ($standart as $item)
+                            <li>{{ $item->list }}</li>
+                            @endforeach
                         </ul>
                         <a href="#" class="pricing_btn">Purchase Now</a>
                     </div>
@@ -164,12 +147,9 @@
                         <p>Business</p>
                         <h3>$50.00 <span>/ mo</span></h3>
                         <ul>
-                            <li>2GB Bandwidth</li>
-                            <li>Two Account</li>
-                            <li>15GB Storage</li>
-                            <li>Sale After Service</li>
-                            <li>3 Host Domain</li>
-                            <li>24/7 Support</li>
+                                @foreach ($standart as $item)
+                                <li>{{ $item->list }}</li>
+                                @endforeach
                         </ul>
                         <a href="#" class="pricing_btn">Purchase Now</a>
                     </div>
@@ -178,15 +158,12 @@
                     <div class="single_pricing_part">
                         <img src="{{asset('frontend/img/icon/pricing_icon_3.png')}}" alt="">
                         <p>Premium</p>
-                        <h3>$60.00 <span>/ mo</span></h3>
+                        <h3>${{ $item->price }} <span>/ mo</span></h3>
                         <ul>
-                            <li>2GB Bandwidth</li>
-                            <li>Two Account</li>
-                            <li>15GB Storage</li>
-                            <li>Sale After Service</li>
-                            <li>3 Host Domain</li>
-                            <li>24/7 Support</li>
-                        </ul>
+                            @foreach ($standart as $item)
+                                <li>{{ $item->list }}</li>
+                                @endforeach
+                            </ul>
                         <a href="#" class="pricing_btn">Purchase Now</a>
                     </div>
                 </div>
@@ -196,12 +173,9 @@
                         <p>Ultimate</p>
                         <h3>$80.00 <span>/ mo</span></h3>
                         <ul>
-                            <li>2GB Bandwidth</li>
-                            <li>Two Account</li>
-                            <li>15GB Storage</li>
-                            <li>Sale After Service</li>
-                            <li>3 Host Domain</li>
-                            <li>24/7 Support</li>
+                                @foreach ($standart as $item)
+                            <li>{{ $item->list }}</li>
+                            @endforeach
                         </ul>
                         <a href="#" class="pricing_btn">Purchase Now</a>
                     </div>
@@ -223,7 +197,18 @@
                 </div>
                 <div class="col-md-6 col-lg-5">
                     <div class="review_slider owl-carousel">
-                        <div class="review_part_text">
+                        @foreach ($post as $one)
+
+                        <div class="review_part_text <?= $i == 1 ? 'active' : '' ?>" >
+                            <h2>{{ $one->{'title_'.$lang} }}</h2>
+                            <p>{{ $one->{'description_'.$lang} }}</p>
+                            <h3>{{ $one->user_id }} <span>CEO of softking</span> </h3>
+                        </div>
+                        @php
+                            $i++
+                        @endphp
+                        @endforeach
+                        {{-- <div class="review_part_text">
                             <h2>With efficiency to
                                 unlock more opportunities</h2>
                             <p>Saw shall light. Us their to place had creepeth day
@@ -242,17 +227,7 @@
                                 gathering man. Waters and, two. Bearing. Saw she'd
                                 all let she'd lights abundantly blessed.</p>
                             <h3>Mitchel Jeferson, <span>CEO of softking</span> </h3>
-                        </div>
-                        <div class="review_part_text">
-                            <h2>With efficiency to
-                                unlock more opportunities</h2>
-                            <p>Saw shall light. Us their to place had creepeth day
-                                night great wher appear to. Hath, called, sea called,
-                                gathering wherein open make living Female itself
-                                gathering man. Waters and, two. Bearing. Saw she'd
-                                all let she'd lights abundantly blessed.</p>
-                            <h3>Mitchel Jeferson, <span>CEO of softking</span> </h3>
-                        </div>
+                        </div> --}}
                     </div>
 
                 </div>
@@ -294,27 +269,11 @@
             <div class="row align-items-center">
                 <div class="col-lg-12">
                     <div class="client_logo_slider owl-carousel d-flex justify-content-between">
+                        @foreach ($partners as $item)
                         <div class="single_client_logo">
-                            <img src="{{asset('frontend/img/client_logo/client_logo_1.png')}}" alt="">
+                            <img src="{{asset('storage').'/'.$item->image}}" alt="">
                         </div>
-                        <div class="single_client_logo">
-                            <img src="{{asset('frontend/img/client_logo/client_logo_2.png')}}" alt="">
-                        </div>
-                        <div class="single_client_logo">
-                            <img src="{{asset('frontend/img/client_logo/client_logo_3.png')}}" alt="">
-                        </div>
-                        <div class="single_client_logo">
-                            <img src="{{asset('frontend/img/client_logo/client_logo_4.png')}}" alt="">
-                        </div>
-                        <div class="single_client_logo">
-                            <img src="{{asset('frontend/img/client_logo/client_logo_5.png')}}" alt="">
-                        </div>
-                        <div class="single_client_logo">
-                            <img src="{{asset('frontend/img/client_logo/client_logo_1.png')}}" alt="">
-                        </div>
-                        <div class="single_client_logo">
-                            <img src="{{asset('frontend/img/client_logo/client_logo_2.png')}}" alt="">
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
